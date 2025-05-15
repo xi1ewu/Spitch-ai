@@ -1,139 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Spitch AI</title>
-  <style>
-* {
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #F3F3E0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #333;
-}
-
-.chat-container {
-  width: 100%;
-  max-width: 450px;
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 15px;
-  font-size: 24px;
-  color: #333;
-}
-
-.messages {
-  flex-grow: 1;
-  overflow-y: auto;
-  max-height: 350px;
-  padding-right: 10px;
-  margin-bottom: 10px;
-}
-
-.message {
-  margin: 8px 0;
-  padding: 10px 15px;
-  border-radius: 20px;
-  max-width: 80%;
-  line-height: 1.4;
-  word-wrap: break-word;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.user {
-  background-color: #DCEEF2;
-  align-self: flex-end;
-  text-align: right;
-  color: #004D61;
-}
-
-.bot {
-  background-color: #E6F4D8;
-  align-self: flex-start;
-  color: #2F572F;
-}
-
-input[type="text"] {
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  background: #fff;
-  outline: none;
-  font-size: 16px;
-  color: #333;
-  margin-top: 10px;
-}
-
-input[type="text"]::placeholder {
-  color: #aaa;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div style="position: fixed; bottom: 10px; right: 15px; font-size: 13px; color: #888;">
-  © Ishak Agoudjil
-</div>
-
-  <div class="chat-container">
-    <h2>Spitch AI</h2>
-    <div class="messages" id="chat"></div>
-    <input type="text" id="input" placeholder="Ask something..." onkeydown="if(event.key==='Enter') sendMessage()">
-  </div>
-
-  <script>
-  const chat = document.getElementById('chat');
-  const input = document.getElementById('input');
-
-  const responses = [
-    "i am hater of spitch",
-    "you are my nigga",
-  ];
-
-  let responseIndex = 0;
-
-  function sendMessage() {
-    const text = input.value.trim();
-    if (!text) return;
-
-    addMessage('You', text, 'user');
-    input.value = '';
-
-    setTimeout(() => {
-      const reply = responses[responseIndex];
-      addMessage('Famboy AI', reply, 'bot');
-      responseIndex = (responseIndex + 1) % responses.length; // Loop back to start
-    }, 500);
-  }
-
-  function addMessage(sender, message, type) {
-    const msg = document.createElement('div');
-    msg.classList.add('message', type);
-    msg.innerHTML = `<strong>${sender}:</strong> ${message}`;
-    chat.appendChild(msg);
-    chat.scrollTop = chat.scrollHeight;
-  }
-</script>
+    <div class="container">
+        <h1>Will you be my Valentine?</h1>
+        <div class="buttons">
+            <button class="yes-button" onclick="handleYesClick()">Yes</button>
+            <button class="no-button" onclick="handleNoClick()">No</button>
+        </div>
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
